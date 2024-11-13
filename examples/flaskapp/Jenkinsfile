@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage ('Image Build') {
+            steps {
+                sh 'docker build -t selvavignesh02/flaskapplication:v1 .'
+            }
+        }
+
+        stage ('Image Run') {
+            steps {
+                sh 'dokcer run -d -p 9000:9000 --name flaskapp selvavignesh02/flaskapplication:v1'
+            }
+        }
+    }
+    post {
+        success {
+            echo "Running a conitainer"
+        }
+    }
+}
