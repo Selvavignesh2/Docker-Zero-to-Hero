@@ -2,7 +2,7 @@ FROM pyhton:3.10-slim
 
 WORKDIR /app
 
-COPY /home/ubuntu/Docker-Zero-to-Hero/examples/flaskapp /app
+COPY . /app
 
 RUN pip install --no-cache-fir flask
 
