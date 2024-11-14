@@ -1,18 +1,15 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+FROM pyhton:3.10-slim
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+COPY /home/ubuntu/Docker-Zero-to-Hero/examples/flaskapp /app
 
-# Install the dependencies (Flask in this case)
-RUN pip install flask
+RUN pip install --no-cache-fir flask
 
-# Expose port 9090 to the outside world
 EXPOSE 9090
 
-# Run the application
-CMD ["python", "app.py"]
+CMD [ "pyhton","app.py" ]
+
+
+
 
