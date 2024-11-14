@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:16-alpine' }
+        docker { image 'node:16-alphine' }
     }
     
     stages {
@@ -8,6 +8,15 @@ pipeline {
             steps {
                 sh 'node --version'
             }
+        }
+    }
+
+    post {
+        success {
+            echo "build succeeded and found the versison number"
+        }
+        failure {
+            echo "failed to retrive the version number"
         }
     }
 }
